@@ -29,6 +29,9 @@ Este repositório contém propostas de sistemas web completos desenvolvidos com 
 | **Relatórios semanais** | Aprovação de testes, bugs abertos/fechados |
 | **Dashboard** | Cobertura de testes, tempo médio entre versões |
 
+**🔍 Concorrente Popular:**  
+O **Confluence (Atlassian)** é amplamente usado para colaboração técnica e documentação. O FlowDocs Teams traz uma abordagem leve, com testes integrados e rastreabilidade, ideal para squads que desejam autonomia e controle completo sobre os dados.
+
 ---
 
 ## 🔹 Proposta 2 – StorePro 360
@@ -45,6 +48,9 @@ Este repositório contém propostas de sistemas web completos desenvolvidos com 
 | **CRUD mínimo** | Produtos, Pedidos |
 | **Relatórios semanais** | Vendas diárias, rupturas |
 | **Dashboard** | KPIs: ticket médio, giro de estoque |
+
+**🔍 Concorrente Popular:**  
+O **Bling ERP** oferece um sistema completo para gestão de pequenos negócios com emissão de nota fiscal. O StorePro 360 é uma alternativa open source ideal para aprendizagem técnica e adaptação conforme a realidade do cliente.
 
 ---
 
@@ -63,6 +69,9 @@ Este repositório contém propostas de sistemas web completos desenvolvidos com 
 | **Relatórios semanais** | NPS, taxa de presença |
 | **Dashboard** | Heat-map, comparativos de satisfação |
 
+**🔍 Concorrente Popular:**  
+O **Sympla** domina o mercado de eventos abertos. O EventHub foca em eventos **internos corporativos**, com funcionalidades que atendem diretamente à área de RH e sem cobrança por inscrição.
+
 ---
 
 ## 🔹 Proposta 4 – LegalDoc
@@ -80,6 +89,9 @@ Este repositório contém propostas de sistemas web completos desenvolvidos com 
 | **Relatórios semanais** | Casos vencidos, clientes ativos |
 | **Dashboard** | Alertas de vencimento, produtividade |
 
+**🔍 Concorrente Popular:**  
+O **SAJ ADV** é um sistema jurídico robusto usado por grandes escritórios. O LegalDoc propõe um sistema mais leve, direto ao ponto, ideal para quem deseja controle simples, prático e sem mensalidades.
+
 ---
 
 ## 🔹 Proposta 5 – StockFlow DX
@@ -94,6 +106,9 @@ Este repositório contém propostas de sistemas web completos desenvolvidos com 
 | **Stack** | AngularJS + FastAPI + PostgreSQL |
 | **Relatórios semanais** | Itens críticos, valor em estoque |
 | **Dashboard** | Gráficos de giro de estoque e categorias |
+
+**🔍 Concorrente Popular:**  
+O **Tiny ERP** oferece funcionalidades semelhantes, porém com custo mensal. O StockFlow DX oferece controle total do código, sendo ideal para desenvolvedores ou negócios que precisam de uma solução flexível e gratuita.
 
 ---
 
@@ -110,6 +125,9 @@ Este repositório contém propostas de sistemas web completos desenvolvidos com 
 | **Relatórios semanais** | Fluxo de caixa, metas, categorias |
 | **Dashboard** | Saldo projetado, comparativo de metas |
 
+**🔍 Concorrente Popular:**  
+O **Conta Azul** é amplamente usado por pequenos empreendedores no Brasil. O FinTrack DX é uma alternativa didática e gratuita, permitindo customizações e foco em aprendizado técnico.
+
 ---
 
 ## 🔹 Proposta 7 – MiniERP Estoque & Finanças
@@ -125,4 +143,23 @@ Este repositório contém propostas de sistemas web completos desenvolvidos com 
 | **Relatórios semanais** | Vendas, lucro, inadimplência |
 | **Dashboard** | KPIs em tempo real e integração de módulos |
 
+**🔍 Concorrente Popular:**  
+O **Omie** é um ERP bastante completo no mercado brasileiro. O MiniERP proposto tem foco educacional e total flexibilidade de código para que o aluno compreenda na prática como funciona a integração de setores no backend e frontend.
+
 ---
+
+## 📅 Cronograma-base para todas as propostas
+
+| Semana | Entregas |
+|--------|----------|
+| **S1 (27/06 – 03/07)** | Definição de escopo, wireframes, setup do repositório |
+| **S2 (04/07 – 10/07)** | Login com JWT, controle de permissões (RBAC) |
+| **S3 (11/07 – 17/07)** | CRUD principal (Produtos / Receitas / Processos etc) |
+| **S4 (18/07 – 24/07)** | CRUD secundário, relacionamentos, validações |
+| **S5 (25/07 – 31/07)** | Dashboard com gráficos + relatórios PDF/CSV |
+| **Buffer** | Testes finais, documentação e deploy |
+
+📌 **Relatórios semanais**: entregues toda **segunda-feira**, contendo:
+- Markdown do progresso
+- Print das telas implementadas
+- Checklist das metas semanais
