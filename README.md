@@ -94,7 +94,7 @@ O **SAJ ADV** é um sistema jurídico robusto usado por grandes escritórios. O 
 
 ---
 
-## 🔹 Proposta 5 – StockFlow DX
+## 🔹 Proposta 5 – StockFlow
 
 > Controle de estoque com alertas e relatórios
 
@@ -108,11 +108,11 @@ O **SAJ ADV** é um sistema jurídico robusto usado por grandes escritórios. O 
 | **Dashboard** | Gráficos de giro de estoque e categorias |
 
 **🔍 Concorrente Popular:**  
-O **Tiny ERP** oferece funcionalidades semelhantes, porém com custo mensal. O StockFlow DX oferece controle total do código, sendo ideal para desenvolvedores ou negócios que precisam de uma solução flexível e gratuita.
+O **Tiny ERP** oferece funcionalidades semelhantes, porém com custo mensal. O StockFlow oferece controle total do código, sendo ideal para desenvolvedores ou negócios que precisam de uma solução flexível e gratuita.
 
 ---
 
-## 🔹 Proposta 6 – FinTrack DX
+## 🔹 Proposta 6 – FinTrack
 
 > Plataforma de controle financeiro para PMEs e autônomos
 
@@ -126,7 +126,7 @@ O **Tiny ERP** oferece funcionalidades semelhantes, porém com custo mensal. O S
 | **Dashboard** | Saldo projetado, comparativo de metas |
 
 **🔍 Concorrente Popular:**  
-O **Conta Azul** é amplamente usado por pequenos empreendedores no Brasil. O FinTrack DX é uma alternativa didática e gratuita, permitindo customizações e foco em aprendizado técnico.
+O **Conta Azul** é amplamente usado por pequenos empreendedores no Brasil. O FinTrack é uma alternativa didática e gratuita, permitindo customizações e foco em aprendizado técnico.
 
 ---
 
