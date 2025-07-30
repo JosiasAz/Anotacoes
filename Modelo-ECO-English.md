@@ -54,7 +54,7 @@ Specific area where the change will be implemented: PCB Main, LCM, SMT, Pulp Pac
 
 # 🗃️ ECO Technical — Database & Markdown Structure
 
-This document outlines how standardized ECO model data can be represented using Markdown tables and structured in a relational database.
+> This document outlines how standardized ECO model data can be represented using Markdown tables and structured in a relational database.
 
 ---
 
