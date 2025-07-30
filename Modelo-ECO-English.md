@@ -110,18 +110,108 @@ Specific area where the change will be implemented: PCB Main, LCM, SMT, Pulp Pac
 
 ---
 
+# 🗃️ ECO Technical — Database & Structure in Markdown
+
+This document describes how standardized ECO model data can be represented in Markdown tables and later structured into a relational database.
+
+---
+
+## 1. 📦 Table: `eco_documents`
+
+| Field               | Type        | Description                                       |
+|--------------------|-------------|---------------------------------------------------|
+| id                 | INT (PK)    | Unique identifier of the ECO                     |
+| document_title     | VARCHAR     | Title of the technical document                  |
+| applied_models     | TEXT        | List of applicable SKD/CKD models                |
+| implementation_date| DATE        | Date of change implementation                    |
+| is_coupled_change  | BOOLEAN     | Coupled change (true = yes / false = no)         |
+| requires_rework    | BOOLEAN     | Rework required (true / false)                   |
+| change_reason      | TEXT        | Technical description of the reason for change   |
+| application_area   | VARCHAR     | Area of application (PCB, LCM, etc.)             |
+| comments           | TEXT        | General remarks about the ECO                    |
+
+---
+
+## 2. 🔧 Table: `technical_details`
+
+| Field            | Type      | Description                                      |
+|------------------|-----------|--------------------------------------------------|
+| id              | INT (PK)  | Technical identifier                             |
+| eco_id          | INT (FK)  | Reference to the main ECO                       |
+| component_from  | VARCHAR   | Old component code                               |
+| component_to    | VARCHAR   | New component code                               |
+| app_history     | VARCHAR   | Version history                                  |
+| checksum        | VARCHAR   | Checksum code for validation                     |
+| reference_codes | TEXT      | HQ ECO codes or related references               |
+
+---
+
+## 3. 🧩 Table: `department_actions`
+
+| Field            | Type      | Description                                      |
+|------------------|-----------|--------------------------------------------------|
+| id              | INT (PK)  | Identifier                                       |
+| eco_id          | INT (FK)  | Reference to the ECO document                    |
+| department_name | VARCHAR   | Department name (RnD, MFG, IQC...)               |
+| action_detail   | TEXT      | Description of planned/executed actions          |
+
+---
+
+## 4. 📎 Table: `attachments`
+
+| Field            | Type      | Description                                      |
+|------------------|-----------|--------------------------------------------------|
+| id              | INT (PK)  | Identifier                                       |
+| eco_id          | INT (FK)  | Reference to the ECO document                    |
+| attachment_type | VARCHAR   | Type of attachment (BOM, report, instructions)   |
+| file_path       | VARCHAR   | Path or URL to the attached file                 |
+
+---
+
+# 📘 Entity-Relationship (ER) Model
+
+This model represents the relationships between tables in an engineering structure that utilizes Engineering Change Order (ECO) documents.
+
+## 🧱 Main Table: `eco_documents`
+
+Contains core data for the engineering change request.
+
+---
+
+## 🔗 Relationships & Cardinalities
+
+### 🔹 `eco_documents` → `technical_details`
+- **Type**: 1:N (One to Many)
+- **Description**: One ECO may have multiple technical details.
+- **Foreign Key**: `technical_details.eco_id` → `eco_documents.id`
+
+### 🔹 `eco_documents` → `department_actions`
+- **Type**: 1:N (One to Many)
+- **Description**: One ECO may involve multiple departments with distinct actions.
+- **Foreign Key**: `department_actions.eco_id` → `eco_documents.id`
+
+### 🔹 `eco_documents` → `attachments`
+- **Type**: 1:N (One to Many)
+- **Description**: One ECO may contain multiple attachments.
+- **Foreign Key**: `attachments.eco_id` → `eco_documents.id`
+
+---
+
+## 🧠 Simplified Structure Diagram
+
+```text
+eco_documents (1)
+   ├── technical_details (N)
+   ├── department_actions (N)
+   └── attachments (N)
+```
+
+---
+
+
 ## 📌 Notes on Database Usage:
 
 - All tables are linked via foreign key `eco_id` for consistent tracking and integrity.
 - `TEXT` fields are used for flexible-length descriptive entries.
 - `BOOLEAN` fields enable logical filtering in dashboards or front-ends.
 - This schema is compatible with SQL databases like MySQL, PostgreSQL, SQL Server, and easily adaptable to NoSQL using JSON schemas.
-
----
-
-## ✅ GitHub Usage Suggestions
-
-- Create a `/database` folder in the repository to store `README.md`, `schema.sql`, and example entries.
-- Use this `README.md` to document how data from ECO forms relate to the database backend.
-- Add example `.md` records in `/examples` for reference and team onboarding:
-
