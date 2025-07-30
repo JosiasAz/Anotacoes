@@ -111,17 +111,51 @@ EKMP700810, DKLP300437, EKLO200699, etc.
 
 ---
 
+# 📘 Modelo Entidade-Relacionamento (ER)
+
+Este modelo representa as relações entre as tabelas de uma estrutura de engenharia que utiliza documentos de alteração (ECO).
+
+---
+
+## 🧱 Tabela Principal: `eco_documents`
+
+Contém os dados principais da solicitação de alteração de engenharia.
+
+---
+
+## 🔗 Relacionamentos e Cardinalidades
+
+### 🔹 `eco_documents` → `technical_details`
+- **Tipo**: 1:N (Um para Muitos)
+- **Descrição**: Um ECO pode possuir vários detalhes técnicos.
+- **Chave Estrangeira**: `technical_details.eco_id` → `eco_documents.id`
+
+### 🔹 `eco_documents` → `department_actions`
+- **Tipo**: 1:N (Um para Muitos)
+- **Descrição**: Um ECO pode envolver múltiplos departamentos com diferentes ações.
+- **Chave Estrangeira**: `department_actions.eco_id` → `eco_documents.id`
+
+### 🔹 `eco_documents` → `attachments`
+- **Tipo**: 1:N (Um para Muitos)
+- **Descrição**: Um ECO pode conter vários arquivos anexos.
+- **Chave Estrangeira**: `attachments.eco_id` → `eco_documents.id`
+
+---
+
+## 🧠 Estrutura Visual Simplificada
+
+```text
+eco_documents (1)
+   ├── technical_details (N)
+   ├── department_actions (N)
+   └── attachments (N)
+```
+---
+
+
 ## 📌 Observações sobre uso em BD:
 
 - Todas as tabelas possuem relacionamento via chave estrangeira (`eco_id`) para manter integridade e rastreabilidade.
 - Os campos `TEXT` podem ser usados para informações descritivas que variam bastante em tamanho.
 - Os campos `BOOLEAN` permitem lógica condicional no front-end (ex.: mostrar “⚠️ Rework”).
 - Essa modelagem é compatível com bancos como MySQL, PostgreSQL, SQLite e pode ser facilmente traduzida para JSON se o sistema for NoSQL.
-
----
-
-## ✅ Sugestões para GitHub
-
-- Crie uma pasta `/database` no repositório para separar `README.md`, `schema.sql`, ou até modelos JSON.
-- Use este `README.md` para documentação interna do time de engenharia.
-- Inclua exemplos preenchidos em outros arquivos `.md` para treinamento e consulta rápida.
