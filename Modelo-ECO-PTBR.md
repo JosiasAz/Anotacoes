@@ -49,3 +49,79 @@ EKMP700810, DKLP300437, EKLO200699, etc.
 - Comparativo BOM (As-Is x To-Be)  
 - Relatórios de teste / ECO HQ  
 - Fumisso / Documentos de validação
+
+
+
+---
+
+# 🗃️ ECO Técnica — Banco de Dados & Estrutura em Markdown
+> Este documento descreve como os dados padronizados do modelo ECO podem ser representados em tabelas Markdown e posteriormente estruturados em um banco de dados relacional.
+
+---
+
+## 1. 📦 Tabela: eco_documents
+
+| Campo               | Tipo      | Descrição                                      |
+|---------------------|-----------|------------------------------------------------|
+| id                  | INT (PK)  | Identificador único do ECO                     |
+| document_title      | VARCHAR   | Título do documento técnico                    |
+| applied_models      | TEXT      | Lista de modelos SKD/CKD aplicáveis            |
+| implementation_date | DATE      | Data de aplicação da mudança                   |
+| is_coupled_change   | BOOLEAN   | Mudança casada (`true` = sim / `false` = não)  |
+| requires_rework     | BOOLEAN   | Rework necessário (`true` / `false`)           |
+| change_reason       | TEXT      | Descrição técnica do motivo da mudança         |
+| application_area    | VARCHAR   | Local de aplicação (PCB, LCM, etc.)            |
+| comments            | TEXT      | Observações gerais do ECO                      |
+
+---
+
+## 2. 🔧 Tabela: technical_details
+
+| Campo            | Tipo      | Descrição                                      |
+|------------------|-----------|------------------------------------------------|
+| id               | INT (PK)  | Identificador técnico                          |
+| eco_id           | INT (FK)  | Referência ao ECO principal                    |
+| component_from   | VARCHAR   | Código antigo do componente                    |
+| component_to     | VARCHAR   | Código novo do componente                      |
+| app_history      | VARCHAR   | Histórico de versão                            |
+| checksum         | VARCHAR   | Código checksum para validação                 |
+| reference_codes  | TEXT      | Códigos ECO HQ ou relacionados                 |
+
+---
+
+## 3. 🧩 Tabela: department_actions
+
+| Campo            | Tipo      | Descrição                                       |
+|------------------|-----------|-------------------------------------------------|
+| id               | INT (PK)  | Identificador                                   |
+| eco_id           | INT (FK)  | Referência ao documento ECO                    |
+| department_name  | VARCHAR   | Nome da área responsável (RnD, MFG, IQC...)     |
+| action_detail    | TEXT      | Descrição das ações planejadas/realizadas       |
+
+---
+
+## 4. 📎 Tabela: attachments
+
+| Campo            | Tipo      | Descrição                                       |
+|------------------|-----------|-------------------------------------------------|
+| id               | INT (PK)  | Identificador                                   |
+| eco_id           | INT (FK)  | Referência ao documento ECO                    |
+| attachment_type  | VARCHAR   | Tipo de anexo (BOM, relatório, instrução, etc.) |
+| file_path        | VARCHAR   | Caminho ou URL para o arquivo anexado           |
+
+---
+
+## 📌 Observações sobre uso em BD:
+
+- Todas as tabelas possuem relacionamento via chave estrangeira (`eco_id`) para manter integridade e rastreabilidade.
+- Os campos `TEXT` podem ser usados para informações descritivas que variam bastante em tamanho.
+- Os campos `BOOLEAN` permitem lógica condicional no front-end (ex.: mostrar “⚠️ Rework”).
+- Essa modelagem é compatível com bancos como MySQL, PostgreSQL, SQLite e pode ser facilmente traduzida para JSON se o sistema for NoSQL.
+
+---
+
+## ✅ Sugestões para GitHub
+
+- Crie uma pasta `/database` no repositório para separar `README.md`, `schema.sql`, ou até modelos JSON.
+- Use este `README.md` para documentação interna do time de engenharia.
+- Inclua exemplos preenchidos em outros arquivos `.md` para treinamento e consulta rápida.
