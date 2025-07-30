@@ -1,4 +1,4 @@
-# 📘 ECO Técnica — Modelo Padronizado
+# 📘 Documento ECO  — Modelo Padronizado
 
 > Documento técnico padrão para controle e rastreabilidade de alterações em modelos industriais.
 
